@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta Digital Estratégica - Cristina Mejía</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+```
+    body {
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+        background: linear-gradient(135deg, #e91e63 0%, #ff6b9d 50%, #c2185b 100%);
+        color: #000000;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .header {
+        text-align: center;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 20px;
+        margin-bottom: 30px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+    }
+
+    .header h1 {
+        font-size: 3rem;
+        background: linear-gradient(135deg, #e91e63, #c2185b);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 20px;
+        text-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .header .subtitle {
+        font-size: 1.3rem;
+        color: #6b7280;
+        margin-bottom: 15px;
+    }
+
+    .client-info {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+    }
+
+    .client-info div {
+        background: linear-gradient(135deg, #e91e63, #c2185b);
+        color: #ffffff;
+        padding: 15px 25px;
+        border-radius: 25px;
+        font-weight: bold;
+        box-shadow: 0 8px 25px rgba(233, 30, 99, 0.3);
+    }
+
+    .section {
+        background: rgba(255, 255, 255, 0.95);
+        margin-bottom: 30px;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+    }
+
+    .section-header {
+        background: linear-gradient(135deg, #e91e63, #c2185b);
+        color: #ffffff;
+        padding: 25px 30px;
+        position: relative;
+    }
+
+    .section-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+        opacity: 0.3;
+        z-index: 1;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .section-header .icon {
+        font-size: 2.5rem;
+    }
+
+    .section-content {
+        padding: 30px;
+    }
+
+    .newsletter-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .newsletter-card {
+        background: linear-gradient(135deg, #e91e63 0%, #ffb3d1 100%);
+        color: #ffffff;
+        padding: 20px;
+        border-radius: 15px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .newsletter-card::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        transform: rotate(-45deg);
+        transition: all 0.3s ease;
+        opacity: 0;
+    }
+
+    .newsletter-card:hover::before {
+        opacity: 1;
+        transform: rotate(-45deg) translate(20px, 20px);
+    }
+
+    .newsletter-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(233, 30, 99, 0.3);
+    }
+
+    .newsletter-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .newsletter-card p {
+        font-size: 0.9rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .premium-section {
+        background: linear-gradient(135deg, #ffb3d1 0%, #ffffff 100%);
+        padding: 30px;
+        border-radius: 15px;
+        margin: 20px 0;
+        border: 2px solid #e91e63;
+    }
+
+    .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .pricing-card {
+        background: #ffffff;
+        padding: 25px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid #6b7280;
+    }
+
+    .pricing-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: linear-gradient(90deg, #e91e63, #c2185b);
+    }
+
+    .pricing-card:hover {
+        transform: translateY(-10px);
+    }
+
+    .pricing-card.featured {
+        border: 3px solid #e91e63;
+        transform: scale(1.05);
+    }
+
+    .price {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #e91e63;
+        margin: 15px 0;
+    }
+
+    .ebook-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .ebook-card {
+        background: linear-gradient(135deg, #ffb3d1 0%, #ffffff 100%);
+        padding: 25px;
+        border-radius: 15px;
+        text-align: center;
+        transition: transform 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid #6b7280;
+    }
+
+    .ebook-card::after {
+        content: '🤰';
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 2rem;
+        opacity: 0.3;
+    }
+
+    .ebook-card:hover {
+        transform: scale(1.05);
+    }
+
+    .ebook-price {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #e91e63;
+        margin-top: 15px;
+    }
+
+    .strategy-box {
+        background: linear-gradient(135deg, #e91e63, #c2185b);
+        color: #ffffff;
+        padding: 25px;
+        border-radius: 15px;
+        margin: 20px 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .strategy-box::before {
+        content: '👶';
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 3rem;
+        opacity: 0.3;
+    }
+
+    .content-series {
+        background: #ffb3d1;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 15px 0;
+        border-left: 5px solid #e91e63;
+    }
+
+    .content-series h4 {
+        color: #e91e63;
+        margin-bottom: 10px;
+    }
+
+    .content-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .content-item {
+        background: #ffffff;
+        padding: 10px 15px;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        border: 1px solid #6b7280;
+    }
+
+    .content-item:hover {
+        background: linear-gradient(135deg, #e91e63, #c2185b);
+        color: #ffffff;
+        transform: translateX(5px);
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin: 20px 0;
+    }
+
+    .stat-card {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        border: 1px solid #6b7280;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #e91e63;
+        display: block;
+    }
+
+    @media (max-width: 768px) {
+        .header h1 {
+            font-size: 2rem;
+        }
+        
+        .client-info {
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .newsletter-grid,
+        .pricing-grid,
+        .ebook-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .cta-section {
+        background: linear-gradient(135deg, #e91e63, #c2185b);
+        color: #ffffff;
+        padding: 40px;
+        border-radius: 20px;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .cta-button {
+        background: #ffffff;
+        color: #e91e63;
+        padding: 15px 40px;
+        border: none;
+        border-radius: 25px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 20px;
+    }
+
+    .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .success-case {
+        background: linear-gradient(135deg, #fff3e0 0%, #ffe0e6 100%);
+        padding: 25px;
+        border-radius: 15px;
+        margin: 20px 0;
+        border: 2px solid #e91e63;
+    }
+</style>
+```
+
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Propuesta de Contenido Digital Estratégico</h1>
+            <div class="subtitle">Conviértete en la referente de entrenamiento para embarazadas</div>
+
+```
+        <div class="client-info">
+            <div>🏢 De: HorseWriter Agency</div>
+            <div>👤 Para: Cristina Mejía</div>
+            <div>🤰 Especialización: Entrenamiento para Embarazadas</div>
+        </div>
+
+        <div class="strategy-box">
+            <h3>🎯 Nuestra Propuesta para Ti</h3>
+            <p>Te posicionaremos como LA experta líder en entrenamiento seguro y especializado para embarazadas en el mercado hispanohablante. Siguiendo el modelo de éxito de MAMIfit, pero con tu enfoque único, crearemos un imperio digital que genere ingresos recurrentes mientras ayudas a miles de futuras mamás.</p>
+        </div>
+
+        <div class="success-case">
+            <h3>📈 Caso de Éxito: MAMIfit</h3>
+            <p><strong>Inspiración del mercado:</strong> MAMIfit es un caso de éxito consolidado que se especializa en "ejercicio para embarazadas y posparto", demostrando que este nicho tiene gran potencial de crecimiento y monetización.</p>
+        </div>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <span class="stat-number">24</span>
+            <div>Newsletters Gratuitos</div>
+        </div>
+        <div class="stat-card">
+            <span class="stat-number">30+</span>
+            <div>Contenidos Premium</div>
+        </div>
+        <div class="stat-card">
+            <span class="stat-number">4</span>
+            <div>Ebooks Especializados</div>
+        </div>
+        <div class="stat-card">
+            <span class="stat-number">70%</span>
+            <div>Reducción de Tasa de Fracaso*</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <h2><span class="icon">📩</span> Estrategia de Newsletters</h2>
+        </div>
+        <div class="section-content">
+            <div class="strategy-box">
+                <p><strong>Servicio Completo de HorseWriter:</strong> Producción completa de newsletters especializados en entrenamiento prenatal. El contenido será escrito, diseñado y gestionado por nuestra agencia, liberando a Cristina para que se enfoque en su especialización y su comunidad de futuras mamás.</p>
+            </div>
+
+            <h3>🤰 Newsletters Gratuitos - Embarazo Saludable</h3>
+            <p style="color: #6b7280; margin-bottom: 20px; font-style: italic;">Contenido estratégico basado en evidencia científica para atraer futuras mamás</p>
+            <div class="newsletter-grid">
+                <div class="newsletter-card">
+                    <h3>🏋️ Rutina Prenatal de la Semana</h3>
+                    <p>Ejercicios seguros adaptados por trimestre</p>
+                </div>
+                <div class="newsletter-card">
+                    <h3>🥗 Nutrición para Dos</h3>
+                    <p>Recetas saludables y tips nutricionales</p>
+                </div>
+                <div class="newsletter-card">
+                    <h3>🤸 Movilidad y Flexibilidad</h3>
+                    <p>Estiramientos seguros para aliviar molestias</p>
+                </div>
+                <div class="newsletter-card">
+                    <h3>💆 Preparación al Parto</h3>
+                    <p>Ejercicios para fortalecer suelo pélvico</p>
+                </div>
+                <div class="newsletter-card">
+                    <h3>🎯 Reto Mamá Activa</h3>
+                    <p>Desafíos semanales adaptados al embarazo</p>
+                </div>
+                <div class="newsletter-card">
+                    <h3>⏰ Ejercicio en 15 Minutos</h3>
+                    <p>Rutinas rápidas para mamás ocupadas</p>
+                </div>
+                <div class="newsletter-card">
+                    <h3>✨ Testimonio de la Semana</h3>
+                    <p>Historias reales de mamás que entrenan</p>
+                </div>
+                <div class="newsletter-card">
+                    <h3>🎵 Playlist Relajante</h3>
+                    <p>Música para entrenar y relajarse</p>
+                </div>
+                <div class="newsletter-card">
+                    <h3>⚠️ Mito vs. Realidad</h3>
+                    <p>Desmintiendo mitos del ejercicio prenatal</p>
+                </div>
+                <div class="newsletter-card">
+                    <h3>🔥 Calentamiento Pre-Ejercicio</h3>
+                    <p>Activación segura antes del entrenamiento</p>
+                </div>
+                <div class="newsletter-card">
+                    <h3>🧘 Mindfulness Maternal</h3>
+                    <p>Ejercicios de relajación y conexión con bebé</p>
+                </div>
+                <div class="newsletter-card">
+                    <h3>⚡ Energía y Vitalidad</h3>
+                    <p>Combatir fatiga con ejercicio adaptado</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 40px;">🌟 Newsletters Gratuitos - Marca Personal</h3>
+            <p style="color: #6b7280; margin-bottom: 20px; font-style: italic;">Contenido premium para establecerte como la experta de referencia</p>
+            <div class="newsletter-grid">
+                <div class="newsletter-card" style="background: linear-gradient(135deg, #c2185b 0%, #880e4f 100%);">
+                    <h3>🏆 Diario de una Especialista</h3>
+                    <p>Experiencias y aprendizajes de Cristina</p>
+                </div>
+                <div class="newsletter-card" style="background: linear-gradient(135deg, #c2185b 0%, #880e4f 100%);">
+                    <h3>🍎 Super Alimento de la Semana</h3>
+                    <p>Alimentos esenciales para embarazadas</p>
+                </div>
+                <div class="newsletter-card" style="background: linear-gradient(135deg, #c2185b 0%, #880e4f 100%);">
+                    <h3>👶 Ejercicio por Trimestre</h3>
+                    <p>Adaptaciones específicas según etapa</p>
+                </div>
+                <div class="newsletter-card" style="background: linear-gradient(135deg, #c2185b 0%, #880e4f 100%);">
+                    <h3>😴 Recuperación y Descanso</h3>
+                    <p>Protocolos de descanso para embarazadas</p>
+                </div>
+                <div class="newsletter-card" style="background: linear-gradient(135deg, #c2185b 0%, #880e4f 100%);">
+                    <h3>❌ Ejercicios Prohibidos</h3>
+                    <p>Qué evitar durante cada trimestre</p>
+                </div>
+                <div class="newsletter-card" style="background: linear-gradient(135deg, #c2185b 0%, #880e4f 100%);">
+                    <h3>🧘 Mente y Cuerpo</h3>
+                    <p>Beneficios psicológicos del ejercicio prenatal</p>
+                </div>
+                <div class="newsletter-card" style="background: linear-gradient(135deg, #c2185b 0%, #880e4f 100%);">
+                    <h3>🧠 Ciencia del Ejercicio</h3>
+                    <p>Investigación actual sobre ejercicio prenatal</p>
+                </div>
+                <div class="newsletter-card" style="background: linear-gradient(135deg, #c2185b 0%, #880e4f 100%);">
+                    <h3>🎒 Kit de la Mamá Fit</h3>
+                    <p>Equipamiento esencial y seguro</p>
+                </div>
+                <div class="newsletter-card" style="background: linear-gradient(135deg, #c2185b 0%, #880e4f 100%);">
+                    <h3>📈 Progresión Inteligente</h3>
+                    <p>Cómo mantener fitness sin riesgos</p>
+                </div>
+                <div class="newsletter-card" style="background: linear-gradient(135deg, #c2185b 0%, #880e4f 100%);">
+                    <h3>🏥 Cuándo Consultar al Médico</h3>
+                    <p>Señales de alarma durante el ejercicio</p>
+                </div>
+                <div class="newsletter-card" style="background: linear-gradient(135deg, #c2185b 0%, #880e4f 100%);">
+                    <h3>📔 Reflexiones Maternas</h3>
+                    <p>Pensamientos sobre maternidad y fitness</p>
+                </div>
+                <div class="newsletter-card" style="background: linear-gradient(135deg, #c2185b 0%, #880e4f 100%);">
+                    <h3>❓ Consulta a Cristina</h3>
+                    <p>Respuestas a dudas comunes de las mamás</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <h2><span class="icon">💎</span> Newsletters Premium - Especialización</h2>
+        </div>
+        <div class="section-content">
+            <p style="color: #6b7280; margin-bottom: 20px; font-style: italic;">Contenido exclusivo de pago basado en tu especialización en entrenamiento prenatal</p>
+
+            <div class="content-series">
+                <h4>🏋️ Programas de Entrenamiento Prenatal</h4>
+                <div class="content-list">
+                    <div class="content-item">Programa 1er Trimestre</div>
+                    <div class="content-item">Programa 2do Trimestre</div>
+                    <div class="content-item">Programa 3er Trimestre</div>
+                    <div class="content-item">Entrenamiento de Fuerza Adaptado</div>
+                    <div class="content-item">Rutinas para Malestares Comunes</div>
+                    <div class="content-item">Preparación Física para el Parto</div>
+                </div>
+            </div>
+
+            <div class="content-series">
+                <h4>🥙 Nutrición Especializada</h4>
+                <div class="content-list">
+                    <div class="content-item">Plan Nutricional por Trimestre</div>
+                    <div class="content-item">Recetario Prenatal Completo</div>
+                    <div class="content-item">Suplementación Segura</div>
+                    <div class="content-item">Nutrición para Entrenar</div>
+                    <div class="content-item">Control de Peso Saludable</div>
+                    <div class="content-item">Hidratación y Electrolitos</div>
+                </div>
+            </div>
+
+            <div class="content-series">
+                <h4>👶 Preparación Integral al Parto</h4>
+                <div class="content-list">
+                    <div class="content-item">Fortalecimiento de Suelo Pélvico</div>
+                    <div class="content-item">Ejercicios de Respiración</div>
+                    <div class="content-item">Técnicas de Relajación</div>
+                    <div class="content-item">Posiciones para el Trabajo de Parto</div>
+                    <div class="content-item">Recuperación Post-Parto</div>
+                    <div class="content-item">Vuelta al Ejercicio Gradual</div>
+                </div>
+            </div>
+
+            <div class="content-series">
+                <h4>👥 Comunidad VIP Mamás Activas</h4>
+                <div class="content-list">
+                    <div class="content-item">Q&A Semanal con Cristina</div>
+                    <div class="content-item">Masterclasses Mensuales</div>
+                    <div class="content-item">Seguimiento Personalizado</div>
+                    <div class="content-item">Entrevistas con Especialistas</div>
+                    <div class="content-item">Grupo de Apoyo Exclusivo</div>
+                    <div class="content-item">Retos Mensuales Adaptados</div>
+                </div>
+            </div>
+
+            <div class="content-series">
+                <h4>🧠 Bienestar Mental y Emocional</h4>
+                <div class="content-list">
+                    <div class="content-item">Manejo de Ansiedades del Embarazo</div>
+                    <div class="content-item">Técnicas de Mindfulness</div>
+                    <div class="content-item">Autoestima y Cambios Corporales</div>
+                    <div class="content-item">Preparación Emocional</div>
+                    <div class="content-item">Conexión Madre-Bebé</div>
+                    <div class="content-item">Apoyo en Depresión Prenatal</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <h2><span class="icon">🌐</span> Landing Page & Plataforma de Ventas</h2>
+        </div>
+        <div class="section-content">
+            <div class="strategy-box">
+                <h3>🎯 Lo que desarrollaremos para ti</h3>
+                <p><strong>Incluido en nuestra propuesta:</strong> Diseño y desarrollo de tu landing page profesional optimizada para conversión, enfocada en generar confianza con futuras mamás. Integraremos pasarelas de pago seguras para suscripciones, ebooks y productos especializados.</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">💳</span>
+                    <div>Pasarela de Pagos Segura</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">📱</span>
+                    <div>Diseño Mobile-First</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">🔒</span>
+                    <div>SSL & Certificaciones</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">📊</span>
+                    <div>Analytics de Maternidad</div>
+                </div>
+            </div>
+
+            <div class="content-series">
+                <h4>🛒 Funcionalidades Especializadas</h4>
+                <div class="content-list">
+                    <div class="content-item">Sistema de Suscripciones por Trimestre</div>
+                    <div class="content-item">Calculadora de Semanas de Embarazo</div>
+                    <div class="content-item">Sección de Testimonios de Mamás</div>
+                    <div class="content-item">Portal Privado para Suscriptoras</div>
+                    <div class="content-item">Chat de Consultas Rápidas</div>
+                    <div class="content-item">Blog de Maternidad y Fitness</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <h2><span class="icon">📚</span> Ebooks y Paquetes</h2>
+```
